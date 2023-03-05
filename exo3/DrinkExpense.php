@@ -1,62 +1,19 @@
 <?php
-
-class DrinkExpense
+require_once("Expense.php");
+class DrinkExpense extends Expense
 {
-    private float $amount;
-
-    private $description;
-
-    private \DateTime $happenedAt;
-
-    private User $le_payeur;
-
-    /**
-     * @var array<User>
-     */
-    private array $participants;
-
-    /**
-     * @param array <string, User> $participants
-     */
+    
     public function __construct(float $amount, string $description, DateTime $happenedAt, User $le_payeur, array $participants)
     {
-        $this->amount = $amount;
-        $this->description = $description;
-        $this->happenedAt = $happenedAt;
-        $this->le_payeur = $le_payeur;
-        $this->participants = $participants;
+        parent::__construct($amount, $description, $happenedAt, $le_payeur, $participants);
     }
-
 
     /**
-     * @return array<string, User> $participants
+     * cette methode renvoie le type de la depense
+     * @return string $type
      */
-    public function getParticipants(): array
+    function getType() : string
     {
-        return $this->participants;
-    }
-
-    public function getAmount(): float
-    {
-        return $this->amount;
-    }
-
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    public function getHappenedAt(): \DateTime
-    {
-        return $this->happenedAt;
-    }
-
-    public function getPayer(): User
-    {
-        return $this->le_payeur;
-    }
-
-    function get_type() {
         return 'DRINK';
     }
 }
