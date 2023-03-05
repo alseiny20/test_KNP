@@ -1,34 +1,49 @@
 <?php
-
 class User
 {
-    private int $id;
-    private $firstName;
-    private string $lastname;
+    private string $firstName;
+    private string $lastName;
+    private string $mailAddress;
 
-    public function __construct(string $firstname, string $lastname, string $mailAddress)
+    public function __construct(string $firstname, string $lastName, string $mailAddress)
     {
-        $this->firstname    = $firstname;
-        $this->lastname     = $lastname;
+        $this->firstName    = $firstname;
+        $this->lastName     = $lastName;
         $this->mailAddress= $mailAddress;
     }
 
-    function getId(): int
+    /**
+     * cette methode renvoie le prenom de l'utilisateur
+     * @return int $firstName
+     */
+    function getFirstname(): string
     {
-        return $this->id;
+        return $this->firstName;
     }
 
-    function getFirstname(): int
-    {
-        return $this->firstname;
-    }
-
+    /**
+     * cette methode renvoie le nom de l'utilisateur
+     * @return string $lastName
+     */
     function getLastname(){
-        return $this->lastname;
+        return $this->lastName;
     }
 
+    /**
+     * cette methode renvoie l'adresse mail de l'utilisateur
+     * @return string $mailAddress
+     */
     function getMailAddress()
     {
-        return $mailAddress;
+        return $this->mailAddress;
+    }
+
+    /**
+     * cette methode renvoie le nom complet de l'utilisateur
+     * @return string $fullName
+     */
+    function getFullname(): string
+    {
+        return $this->firstName . ' ' . $this->lastName;
     }
 }
